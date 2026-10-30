@@ -1,59 +1,380 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HTML Learning Project - Learn the Building Blocks of the Web">
     <title>HTML Learning Project</title>
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --accent: #06b6d4;
+            --bg: #f3f6fb;
+            --surface: #ffffff;
+            --text: #1f2937;
+            --border: #dbe4f0;
+            --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        header {
+            padding: 56px 20px 48px;
+            text-align: center;
+            color: white;
+            background: linear-gradient(
+                135deg,
+                #1d4ed8,
+                #2563eb 55%,
+                #06b6d4
+            );
+        }
+
+        header h1 {
+            margin: 0 0 8px;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            line-height: 1.2;
+        }
+
+        header p {
+            margin: 0;
+            color: #eaf5ff;
+            font-size: 1.08rem;
+        }
+
+        main {
+            width: min(100% - 32px, 1000px);
+            margin: 32px auto;
+        }
+
+        section {
+            margin: 24px 0;
+            padding: clamp(20px, 4vw, 34px);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+        }
+
+        h2 {
+            margin: 0 0 18px;
+            color: var(--primary-dark);
+            font-size: clamp(1.45rem, 3vw, 1.9rem);
+            line-height: 1.3;
+        }
+
+        h3 {
+            margin-top: 28px;
+            color: #0f4c81;
+        }
+
+        h4 {
+            margin-bottom: 8px;
+            color: #334155;
+        }
+
+        p {
+            margin: 12px 0;
+        }
+
+        strong {
+            color: #173b73;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        blockquote {
+            margin: 22px 0;
+            padding: 18px 22px;
+            background: #eff6ff;
+            border-left: 5px solid var(--primary);
+            border-radius: 0 12px 12px 0;
+        }
+
+        blockquote ul {
+            margin-bottom: 0;
+        }
+
+        ul, ol {
+            padding-left: 26px;
+        }
+
+        li {
+            margin: 6px 0;
+        }
+
+        hr {
+            width: min(100% - 40px, 900px);
+            margin: 32px auto;
+            border: 0;
+            border-top: 1px solid var(--border);
+        }
+
+        pre {
+            max-width: 100%;
+            overflow-x: auto;
+            padding: 20px;
+            color: #e2e8f0;
+            background: #0f172a;
+            border: 1px solid #263449;
+            border-radius: 12px;
+            line-height: 1.6;
+            tab-size: 4;
+        }
+
+        pre code {
+            color: inherit;
+            background: transparent;
+            padding: 0;
+        }
+
+        code {
+            padding: 2px 6px;
+            color: #be185d;
+            background: #fdf2f8;
+            border-radius: 5px;
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 0.92em;
+        }
+
+        table {
+            width: 100%;
+            margin: 18px 0 26px;
+            border-collapse: collapse;
+            border: 1px solid var(--border);
+            background: white;
+        }
+
+        th, td {
+            padding: 12px 14px;
+            border: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: white;
+            background: var(--primary-dark);
+        }
+
+        tbody tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        tbody tr:hover {
+            background: #eff6ff;
+        }
+
+        form {
+            max-width: 680px;
+            margin-top: 18px;
+            padding: 22px;
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+        }
+
+        form p {
+            margin: 0 0 18px;
+        }
+
+        label {
+            display: inline-block;
+            margin-bottom: 6px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 14px;
+            color: var(--text);
+            background: white;
+            border: 1px solid #cbd5e1;
+            border-radius: 9px;
+            font: inherit;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
+        button {
+            display: inline-block;
+            padding: 12px 22px;
+            color: white;
+            background: var(--primary);
+            border: 0;
+            border-radius: 9px;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        footer {
+            margin-top: 42px;
+            padding: 24px 18px;
+            color: #e2e8f0;
+            background: #0f172a;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 640px) {
+            header {
+                padding: 42px 18px 36px;
+            }
+
+            main {
+                width: calc(100% - 20px);
+                margin: 18px auto;
+            }
+
+            section {
+                margin: 16px 0;
+                padding: 19px 16px;
+                border-radius: 13px;
+            }
+
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+
+            th, td {
+                min-width: 110px;
+                padding: 10px;
+            }
+
+            pre {
+                padding: 14px;
+                font-size: 0.85rem;
+            }
+
+            form {
+                padding: 16px;
+            }
+        }
+    </style>
 </head>
+
 <body>
+
     <header>
-        <h1>
-           🌐 HTML Learning Project
-        </h1>
-       
-        <p> Master the Building Blocks of the Web
-        </p>
+        <h1>🌐 HTML Learning Project</h1>
+        <p>Master the Building Blocks of the Web</p>
     </header>
 
     <main>
 
-        <section>
+        <section id="what-is-html">
             <h2>🚀 What is HTML?</h2>
-                <p><strong>HTML (HyperText Markup Language)</strong> is the standard markup language for creating web pages. Think of it as the skeleton or foundation of every website you visit.</p>
+
+            <p>
+                <strong>HTML (HyperText Markup Language)</strong> is the standard
+                markup language for creating web pages. Think of it as the
+                skeleton or foundation of every website you visit.
+            </p>
+
+            <blockquote>
+                <strong>Key Points:</strong>
                 <ul>
-                    <li><strong>HyperText</strong>: Text with links to other texts</li>
-                    <li><strong>Markup Language</strong>:A way to annotate text to show structure and meaning</li>
-                    <li><strong>HTML is a programming language</strong> A set of rules and syntax for creating web content</li>
+                    <li><strong>HyperText:</strong> Text with links to other texts.</li>
+                    <li><strong>Markup:</strong> A way to annotate text to show structure and meaning.</li>
+                    <li><strong>Language:</strong> A set of rules and syntax for creating web content.</li>
                 </ul>
+            </blockquote>
+
+            <h3>🏗️ How HTML Works</h3>
+
+            <p>
+                HTML uses <strong>tags</strong> to define elements.
+                Tags are keywords surrounded by angle brackets like
+                <code>&lt;tagname&gt;</code>.
+                Most tags come in pairs:
+            </p>
+
+            <pre><code>&lt;tagname&gt;Content goes here&lt;/tagname&gt;
+&lt;h1&gt;This is a heading&lt;/h1&gt;
+&lt;p&gt;This is a paragraph&lt;/p&gt;</code></pre>
         </section>
 
-        <section>
-            <h2>🏗️ How HTML Works</h2>
-                <p>HTML uses <strong>tags</strong> to define elements. Tags are keywords surrounded by angle brackets like <em>tagname</em>. Most tags come in pairs:</p>
-                <pre><code>&lt;tagname&gt;Content goes here&lt;/tagname&gt;  &lt;h1&gt;This is a heading&lt;/h1&gt;  &lt;p&gt;This is a paragraph&lt;/p&gt;</code></pre>
-        </section>
+        <hr>
 
-        <section>
+        <section id="basic-structure">
             <h2>📋 Basic HTML Structure</h2>
-                <p>Every HTML document follows this basic structure:</p>
-                
-                <pre><code>&lt;!DOCTYPEhtml&gt; &lt;html="en"&gt;  &lt;head&gt;&lt;meta charset="UTF-8"&gt;  &lt;meta name="viewport" content="width"=device-width
-intial-scale=1.0"&gt; &lt;title &gt;page title&lt;/title&gt; &lt;/head&gt; &lt;body&gt;&lt;h1&gt;Welcome to My Website&lt;/h1&gt;&lt;p&gt;This my first
-paragraph&lt;/p&gt;&lt;/body&gt; &lt;/html&gt;</code></pre>
 
-                <div class="structure-breakdown">
-                    <h3>Structure Breakdown:</h3>
-                    <ul>
-                    <li><code>&lt;!DOCTYPE html&gt;</code> - Tells the browser this is HTML5.</li>
-                    <li><code>&lt;html&gt;</code> - Root element of the page.</li>
-                    <li><code>&lt;head&gt;</code> - Contains metadata (not visible on page).</li>
-                    <li><code>&lt;body&gt;</code> - Contains visible content.</li>
-                    </ul>
-                </div>
+            <p>Every HTML document follows this basic structure:</p>
+
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Page Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome to My Website&lt;/h1&gt;
+    &lt;p&gt;This is my first paragraph.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h3>Structure Breakdown</h3>
+
+            <ul>
+                <li><strong>&lt;!DOCTYPE html&gt;</strong> — Tells the browser this is HTML5.</li>
+                <li><strong>&lt;html&gt;</strong> — Root element of the page.</li>
+                <li><strong>&lt;head&gt;</strong> — Contains metadata that is not directly visible on the page.</li>
+                <li><strong>&lt;body&gt;</strong> — Contains the visible content of the webpage.</li>
+            </ul>
         </section>
-        
-                <section>
-            <h2>Essential HTML Tags</h2>
+
+        <hr>
+
+        <section id="essential-tags">
+            <h2>🏷️ Essential HTML Tags</h2>
+
             <table>
                 <thead>
                     <tr>
@@ -65,37 +386,269 @@ paragraph&lt;/p&gt;&lt;/body&gt; &lt;/html&gt;</code></pre>
                 <tbody>
                     <tr>
                         <td>&lt;h1&gt; - &lt;h6&gt;</td>
-                        <td>Heading(Largest to smallest)</td>
-                        <td>&lt;h1&gt;Main Heading&lt;/h1&gt;</td>
+                        <td>Headings (largest to smallest)</td>
+                        <td><code>&lt;h1&gt;Main Title&lt;/h1&gt;</code></td>
                     </tr>
                     <tr>
                         <td>&lt;p&gt;</td>
-                        <td>Paragraph</td>
-                        <td>&lt;p&gt;This is a Text.&lt;/p&gt;</td>
+                        <td>Paragraphs</td>
+                        <td><code>&lt;p&gt;This is text&lt;/p&gt;</code></td>
                     </tr>
                     <tr>
                         <td>&lt;a&gt;</td>
                         <td>Links</td>
-                        <td>&lt;a href="url"&gt;Link text&lt;/a&gt;</td>
+                        <td><code>&lt;a href="url"&gt;Link text&lt;/a&gt;</code></td>
                     </tr>
                     <tr>
                         <td>&lt;img&gt;</td>
-                        <td>Image</td>
-                        <td>&lt;img src="image.jpg" alt="Description"&gt;</td>
+                        <td>Images</td>
+                        <td><code>&lt;img src="image.jpg" alt="Description"&gt;</code></td>
                     </tr>
                     <tr>
                         <td>&lt;div&gt;</td>
-                        <td>Container/Section</td>
-                        <td>&lt;div&gt;Content here&lt;/div&gt;</td>
+                        <td>Container or section</td>
+                        <td><code>&lt;div&gt;Content here&lt;/div&gt;</code></td>
                     </tr>
                     <tr>
                         <td>&lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;</td>
                         <td>Lists</td>
-                        <td>&lt;ul&gt;&lt;li&gt;Item &lt;/li&gt;&lt;/ul&gt;</td>
+                        <td><code>&lt;ul&gt;&lt;li&gt;Item&lt;/li&gt;&lt;/ul&gt;</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>🎯 Live Examples</h3>
+
+            <h1>This is an H1 heading</h1>
+            <h2>This is an H2 heading</h2>
+            <h3>This is an H3 heading</h3>
+
+            <p>
+                This is a paragraph with
+                <strong>bold text</strong> and
+                <em>italic text</em>.
+            </p>
+
+            <p>Here's a <a href="#">sample link</a>.</p>
+
+            <h4>Unordered List</h4>
+            <ul>
+                <li>First item</li>
+                <li>Second item</li>
+                <li>Third item</li>
+            </ul>
+
+            <h4>Ordered List</h4>
+            <ol>
+                <li>Step one</li>
+                <li>Step two</li>
+                <li>Step three</li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section id="forms">
+            <h2>📝 HTML Forms</h2>
+
+            <p>Forms allow users to input data.</p>
+
+            <pre><code>&lt;form&gt;
+    &lt;label for="name"&gt;Name:&lt;/label&gt;
+    &lt;input type="text" id="name" name="name"&gt;
+
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email"&gt;
+
+    &lt;label for="message"&gt;Message:&lt;/label&gt;
+    &lt;textarea id="message" name="message"&gt;&lt;/textarea&gt;
+
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+            <h3>Example Form</h3>
+
+            <form>
+                <p>
+                    <label for="name"><strong>Name:</strong></label>
+                    <input type="text" id="name" name="name">
+                </p>
+
+                <p>
+                    <label for="email"><strong>Email:</strong></label>
+                    <input type="email" id="email" name="email">
+                </p>
+
+                <p>
+                    <label for="subject"><strong>Subject:</strong></label>
+                    <select id="subject" name="subject">
+                        <option value="question">Question</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="support">Support</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="message"><strong>Message:</strong></label>
+                    <textarea id="message" name="message" rows="5"></textarea>
+                </p>
+
+                <button type="submit">Submit Form</button>
+            </form>
+        </section>
+
+        <hr>
+
+        <section id="attributes">
+            <h2>🎨 HTML Attributes</h2>
+
+            <p>Attributes provide additional information about HTML elements.</p>
+
+            <pre><code>&lt;!-- Common attributes --&gt;
+
+&lt;img
+    src="photo.jpg"
+    alt="A beautiful sunset"
+    width="300"
+    height="200"
+&gt;
+
+&lt;a
+    href="https://example.com"
+    target="_blank"
+    title="Visit Example"
+&gt;
+    Click here
+&lt;/a&gt;
+
+&lt;div
+    class="container"
+    id="main-content"
+    style="color: blue;"
+&gt;
+    Content
+&lt;/div&gt;</code></pre>
+
+            <h3>Important Attributes</h3>
+
+            <ul>
+                <li><strong>id</strong> — Unique identifier for an element.</li>
+                <li><strong>class</strong> — Groups elements for styling.</li>
+                <li><strong>src</strong> — Source file for images, videos, etc.</li>
+                <li><strong>href</strong> — URL for links.</li>
+                <li><strong>alt</strong> — Alternative text for images.</li>
+                <li><strong>style</strong> — Inline CSS styling.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="tables">
+            <h2>📊 Tables in HTML</h2>
+
+            <p>Tables organize data in rows and columns.</p>
+
+            <pre><code>&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Name&lt;/th&gt;
+            &lt;th&gt;Age&lt;/th&gt;
+            &lt;th&gt;City&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;John&lt;/td&gt;
+            &lt;td&gt;25&lt;/td&gt;
+            &lt;td&gt;New York&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+
+            <h3>Sample Table</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student</th>
+                        <th>Subject</th>
+                        <th>Grade</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Alice Johnson</td>
+                        <td>Mathematics</td>
+                        <td>A+</td>
+                        <td>✅ Passed</td>
+                    </tr>
+                    <tr>
+                        <td>Bob Smith</td>
+                        <td>Physics</td>
+                        <td>B</td>
+                        <td>✅ Passed</td>
+                    </tr>
+                    <tr>
+                        <td>Carol Davis</td>
+                        <td>Chemistry</td>
+                        <td>A</td>
+                        <td>✅ Passed</td>
+                    </tr>
                 </tbody>
             </table>
         </section>
 
-    </main>
-</body>
-</html>
+        <hr>
+
+        <section id="practice">
+            <h2>💻 Practice Exercises</h2>
+
+            <h3>Beginner Tasks</h3>
+            <ol>
+                <li>Create a basic HTML page with a title, heading, and paragraph.</li>
+                <li>Add an image with alt text.</li>
+                <li>Create a list of your favorite movies.</li>
+                <li>Build a simple table with your weekly schedule.</li>
+            </ol>
+
+            <h3>Intermediate Tasks</h3>
+            <ol>
+                <li>Create a contact form with different input types.</li>
+                <li>Build a navigation menu with links.</li>
+                <li>Design a simple blog post layout.</li>
+                <li>Create a photo gallery grid.</li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section id="project-structure">
+            <h2>🗂️ Project Structure</h2>
+
+            <p>Here's how to organize your HTML project:</p>
+
+            <pre><code>my-website/
+│
+├── index.html
+├── about.html
+├── contact.html
+│
+├── css/
+│   └── styles.css
+│
+├── js/
+│   └── script.js
+│
+└── images/
+    ├── logo.png
+    ├── hero-image.jpg
+    └── gallery/
+        ├── photo1.jpg
+        └── photo2.jpg</code></pre>
+        </section>
+
+        <hr>
+
+        <section id="next-steps">
+            <h2>🎯 Next Steps in Your Learning Journey</
